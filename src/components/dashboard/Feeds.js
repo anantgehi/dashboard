@@ -3,82 +3,92 @@ import {
   Card,
   CardBody,
   CardTitle,
-  ListGroup,
   CardSubtitle,
-  ListGroupItem,
-  Button,
+  Table,
 } from "reactstrap";
+
+const columns = [
+	"Ticket Id",
+	"Status",
+]
 
 const FeedData = [
   {
-    title: "Cras justo odio",
-    icon: "bi bi-bell",
-    color: "primary",
-    date: "6 minute ago",
+    Ticketid: "SL1",
+    status: "In Progress",
   },
   {
-    title: "New user registered.",
-    icon: "bi bi-person",
-    color: "info",
-    date: "6 minute ago",
+    Ticketid: "SL2",
+    status: "In Progress",
+  },
+{
+    Ticketid: "SL3",
+    status: "In Progress",
   },
   {
-    title: "Server #1 overloaded.",
-    icon: "bi bi-hdd",
-    color: "danger",
-    date: "6 minute ago",
+    Ticketid: "SL4",
+    status: "In Progress",
   },
   {
-    title: "New order received.",
-    icon: "bi bi-bag-check",
-    color: "success",
-    date: "6 minute ago",
+    Ticketid: "SL5",
+    status: "In Progress",
   },
   {
-    title: "Cras justo odio",
-    icon: "bi bi-bell",
-    color: "dark",
-    date: "6 minute ago",
+    Ticketid: "SL6",
+    status: "In Progress",
   },
   {
-    title: "Server #1 overloaded.",
-    icon: "bi bi-hdd",
-    color: "warning",
-    date: "6 minute ago",
+    Ticketid: "SL7",
+    status: "In Progress",
+  },
+  {
+    Ticketid: "SL8",
+    status: "In Progress",
+  },
+  {
+    Ticketid: "SL9",
+    status: "In Progress",
+  },
+  {
+    Ticketid: "SL10",
+    status: "In Progress",
+  },
+  {
+    Ticketid: "SL11",
+    status: "In Progress",
+  },
+  {
+    Ticketid: "SL12",
+    status: "In Progress",
   },
 ];
 
 const Feeds = () => {
   return (
-    <Card>
+    <Card style={{overflow:'auto',height:'450px'}}>
       <CardBody>
         <CardTitle tag="h5">Feeds</CardTitle>
         <CardSubtitle className="mb-2 text-muted" tag="h6">
           Widget you can use
         </CardSubtitle>
-        <ListGroup flush className="mt-4">
-          {FeedData.map((feed, index) => (
-            <ListGroupItem
-              key={index}
-              action
-              href="/"
-              tag="a"
-              className="d-flex align-items-center p-3 border-0"
-            >
-              <Button
-                className="rounded-circle me-3"
-                size="sm"
-                color={feed.color}
-              >
-                <i className={feed.icon}></i>
-              </Button>
-              {feed.title}
-              <small className="ms-auto text-muted text-small">
-                {feed.date}
-              </small>
-            </ListGroupItem>
-          ))}
-        </ListGroup>
+
+        <Table className="no-wrap mt-3 align-middle" responsive borderless>
+						<thead>
+							<tr>
+								{columns.map((column) => {
+									return <th key={column}>{column}</th>
+								})}
+							</tr>
+						</thead>
+						<tbody>
+							{FeedData.map((FeedData, index) => (
+								<tr key={index} className="border-top">
+									<td>{FeedData.Ticketid}</td>
+									<td>{FeedData.status}</td>
+								</tr>
+							))}
+						</tbody>
+					</Table>
       </CardBody>
     </Card>
   );
